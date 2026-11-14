@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bqupkdc7wn6u1"]
+
+[ext_resource type="Script" uid="uid://cjj0wyk2784e5" path="res://Levels/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://6yctx7wbrxy0" path="res://Levels/assets/images__4_-removebg-preview.png" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql73s"]
+size = Vector2(43, 60)
+
+[node name="Player" type="CharacterBody2D" unique_id=1703238865]
+position = Vector2(-400, 250)
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1532931485]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ql73s")
+
+[node name="Polygon2D" type="Sprite2D" parent="." unique_id=1344819729]
+position = Vector2(-0.99999046, 1.1920929e-07)
+scale = Vector2(0.19805576, 0.21332243)
+texture = ExtResource("2_onrkg")

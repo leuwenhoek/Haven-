@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dtdlr2jehlxye"]
+
+[ext_resource type="PackedScene" uid="uid://bqupkdc7wn6u1" path="res://Levels/player.tscn" id="1_0ovi0"]
+[ext_resource type="Script" uid="uid://pygsulcinxjm" path="res://Levels/level_01_ocean_bed.gd" id="1_nekkr"]
+[ext_resource type="PackedScene" uid="uid://l4pilg6xc773" path="res://Levels/Enemies/Starfish.tscn" id="2_cavcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql73s"]
+size = Vector2(6000, 100)
+
+[node name="Level01OceanBed" type="Node2D" unique_id=1743958534]
+script = ExtResource("1_nekkr")
+starfish_scene = ExtResource("2_cavcp")
+
+[node name="Player" parent="." unique_id=1703238865 instance=ExtResource("1_0ovi0")]
+position = Vector2(100, 300)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1965598907]
+position = Vector2(3000, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=169632181]
+shape = SubResource("RectangleShape2D_ql73s")
+
+[node name="GroundVisual" type="Polygon2D" parent="Ground" unique_id=789897369]
+color = Color(0.06666667, 0.07058824, 0.07058824, 1)
+polygon = PackedVector2Array(-3000, -50, 3000, -50, 3000, 50, -3000, 50)
+
+[node name="OceanBackground" type="Polygon2D" parent="." unique_id=1406798185]
+z_index = -1
+position = Vector2(1003, 500)
+color = Color(0.93333334, 0.972549, 0.32941177, 1)
+polygon = PackedVector2Array(-1000, -1000, 3000, -1000, 3000, 1000, -1000, 1000)
+
+[node name="Starfish" parent="." unique_id=349849256 instance=ExtResource("2_cavcp")]
+position = Vector2(900, 425)
+scale = Vector2(0.5, 0.5)
+
+[node name="Starfish2" parent="." unique_id=1321735586 instance=ExtResource("2_cavcp")]
+position = Vector2(1800, 425)
+scale = Vector2(0.5, 0.5)
+
+[node name="Starfish3" parent="." unique_id=573719422 instance=ExtResource("2_cavcp")]
+position = Vector2(2800, 425)
+scale = Vector2(0.5, 0.5)
+
+[node name="Starfish4" parent="." unique_id=283373289 instance=ExtResource("2_cavcp")]
+position = Vector2(3900, 425)
+scale = Vector2(0.5, 0.5)
+
+[node name="Starfish5" parent="." unique_id=1950740439 instance=ExtResource("2_cavcp")]
+position = Vector2(5000, 425)
+scale = Vector2(0.5, 0.5)
+
+[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=2059711586]
+process_mode = 3
+visible = false
+
+[node name="GameOverText" type="Label" parent="GameOverUI" unique_id=1934414558]
+offset_left = 60.0
+offset_top = 73.0
+offset_right = 1108.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.89018214, 0, 0.073651604, 1)
+theme_override_font_sizes/font_size = 24
+text = "               Game Over
+(This is our first version: for better one - conduct another cool hackathon and invite us xD )"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverUI" unique_id=1236986239]
+offset_left = 519.0
+offset_top = 197.0
+offset_right = 761.0
+offset_bottom = 239.0
+text = "Restart :<"
+
+[node name="StarfishSpawnTimer" type="Timer" parent="." unique_id=1961937177]
+wait_time = 2.5
+autostart = true

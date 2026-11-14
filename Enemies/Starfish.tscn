@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://l4pilg6xc773"]
+
+[ext_resource type="Script" uid="uid://c653pjnj6s047" path="res://Levels/Enemies/starfish.gd" id="1_tve0f"]
+[ext_resource type="Texture2D" uid="uid://c3pkv6jweail" path="res://Levels/assets/images__3_-removebg-preview.png" id="2_rqocm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ql73s"]
+radius = 30.0
+
+[node name="Starfish" type="Area2D" unique_id=349849256]
+script = ExtResource("1_tve0f")
+
+[node name="StarfishVisual" type="Sprite2D" parent="." unique_id=1431673013]
+position = Vector2(-1.4901161e-08, 0)
+scale = Vector2(0.3840909, 0.4136364)
+texture = ExtResource("2_rqocm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405280431]
+position = Vector2(-4, 2)
+shape = SubResource("CircleShape2D_ql73s")
